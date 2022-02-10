@@ -1,24 +1,40 @@
 import React from "react";
 
-//include images into your bundle
-import rigoImage from "../../img/rigo-baby.jpg";
-
 //create your first component
-const Home = () => {
+const Home = (props) => {
+	let { seconds } = props;
+
+	let counter = {
+		a: Math.floor(seconds / 100000),
+		b: Math.floor(seconds / 10000),
+		c: Math.floor(seconds / 1000),
+		d: Math.floor(seconds / 100),
+		e: Math.floor(seconds / 10),
+		f: Math.floor(seconds / 1),
+	};
 	return (
-		<div>
-			<h1 className="text-center mt-5">Hello Rigo!</h1>
-			<p>
-				<img src={rigoImage} />
-			</p>
-			<a href="#" className="btn btn-success">
-				If you see this green button... bootstrap is working...
-			</a>
-			<p>
-				Made by{" "}
-				<a href="http://www.4geeksacademy.com">4Geeks Academy</a>, with
-				love!
-			</p>
+		<div className="d-flex justify-content-center font-weight-bold bg-dark roundedm m-5">
+			<div className="h1 bg-secondary rounded m-1 display-2">
+				<i className="far fa-clock"></i>
+			</div>
+			<div className="h1 bg-secondary rounded m-1 display-2">
+				{counter.a % 10}
+			</div>
+			<div className="h1 bg-secondary rounded m-1 display-2">
+				{counter.b % 10}
+			</div>
+			<div className="h1 bg-secondary rounded m-1 display-2">
+				{counter.c % 10}
+			</div>
+			<div className="h1 bg-secondary rounded m-1 display-2">
+				{counter.d % 10}
+			</div>
+			<div className="h1 bg-secondary rounded m-1 display-2">
+				{counter.e % 10}
+			</div>
+			<div className="h1 bg-secondary rounded m-1 display-2">
+				{counter.f % 10}
+			</div>
 		</div>
 	);
 };
